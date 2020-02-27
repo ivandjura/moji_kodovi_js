@@ -219,4 +219,4 @@ let poslednjiNajviseMerenja = dani => {
   });
   console.log(dani[index].datum);
 };
-console.log("test test test poruka!!!!!!!!!!!!!!!!!!!!!!!");
+console.log("test test test poruka da probamo !!!!!");
