@@ -220,3 +220,5 @@ let poslednjiNajviseMerenja = dani => {
   console.log(dani[index].datum);
 };
 console.log("test test test poruka da probamo !!!!!");
+
+console.log(" ajde ovo je jos jedna proba",5*3)
