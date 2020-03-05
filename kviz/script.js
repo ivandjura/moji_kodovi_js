@@ -14,6 +14,7 @@ let whereChild = document.body.children[1];
 document.body.insertBefore(div, whereChild);
 div.style.display = "none";
 
+
 form.addEventListener("submit", event => {
   event.preventDefault(); //ovo vazi samo za forme //1) u js kodu objekat forme(promenljiva form) //2) svi elementi forme u html-u moraju da imaju name atribut
   //potrebno je odredit ko je radi je selektovan
