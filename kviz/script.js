@@ -24,8 +24,8 @@ form.addEventListener("submit", event => {
           console.log(radio.value);
       }
   });
-  */ let odg1 =
-    form.q1.value; //sa desne strane mi je vrednost-value chekiranog radio buttona
+  */ 
+  let odg1 =form.q1.value; //sa desne strane mi je vrednost-value chekiranog radio buttona
   let odg2 = form.q2.value;
   let odg3 = form.q3.value;
   let odg4 = form.q4.value;
@@ -40,7 +40,7 @@ form.addEventListener("submit", event => {
     }
   });
   if(odg6.lenght>6){
-      score+=// 1/6
+      score+=16.6// 1/6
   }
   console.log(score);
   div.style.display = "block";
