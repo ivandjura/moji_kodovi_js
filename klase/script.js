@@ -24,7 +24,7 @@ console.log(o2);
 import {Auto} from "./modules/auto.js"
 import Film from "./modules/film.js"
 import Pacijent from "./modules/pacijent.js"
-import {Pacijent as PacijentGS} from "./modules/pacijent_gs.js"
+import {Pacijent as PacijentGS} from "./modules/pacijent_gs.js";
 
 let auto1 = new Auto("Peugeot 208", "bela", false);
 //kao da smo pozvali kontruktor ('Peugeot 208' , "bela","false")

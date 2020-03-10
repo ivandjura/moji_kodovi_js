@@ -1,4 +1,4 @@
- export  class Pacijent {
+ export default class Pacijent {
     constructor(i, t, v) {
       this.ime = i;
       this.tezina = t;
