@@ -21,10 +21,11 @@ console.log(o1);
 console.log(o2);
 // klasa Auto
 // Unutar klasa i objekata metode se pisu kao obicne funkcije NIKADA kao arrow funkcije
-import {Auto} from "./modules/auto.js"
-import Film from "./modules/film.js"
-import Pacijent from "./modules/pacijent.js"
-import {Pacijent as PacijentGS} from "./modules/pacijent_gs.js";
+import { Auto } from "./modules/auto.js";
+import Film from "./modules/film.js";
+import Pacijent from "./modules/pacijent.js";
+import {Film as FilmGS} from "./modules/film_gs.js";
+import { Pacijent as PacijentGS } from "./modules/pacijent_gs.js";
 
 let auto1 = new Auto("Peugeot 208", "bela", false);
 //kao da smo pozvali kontruktor ('Peugeot 208' , "bela","false")
@@ -42,13 +43,11 @@ auto2.sviraj();
 auto1.sviraj();
 
 // citanje setera i getera
-console.log(auto1.aMarka)// geteru se pristupa kao polju!!!!
+console.log(auto1.aMarka); // geteru se pristupa kao polju!!!!
 //auto1.marka="Citrone C5"
-auto1.aMarka="Citroen C5"
+auto1.aMarka = "Citroen C5";
 //seteru se pristupa kao polju
-console.log(auto1.aMarka)
-
-
+console.log(auto1.aMarka);
 
 let film1 = new Film("There will be Blood", "Alexander Petersonn", 2010);
 let film2 = new Film("No country for old men", "Cohen broders", 2011);
@@ -66,6 +65,16 @@ let pacijent1 = new Pacijent("janko jankovic", 108, 1.9);
 let pacijent2 = new Pacijent("marko markovic", 76, 1.74);
 let pacijent3 = new Pacijent("stanko stankovic", 90, 1.85);
 
-console.log(pacijent3.kritican())
-console.log(pacijent3.bmi())
-console.log(pacijent2.kritican())
+console.log(pacijent3.kritican());
+console.log(pacijent3.bmi());
+console.log(pacijent2.kritican());
+
+
+
+
+let f1 = new FilmGS("Naked Gun", "David Zucker", 1500);
+//f1.fGodinaIzdanja = 1599;
+console.log(f1);
+
+let pac1 = new PacijentGS("Pera", -50, 1000);
+console.log(pac1);
