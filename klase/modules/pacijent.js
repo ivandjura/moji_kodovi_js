@@ -1,23 +1,25 @@
- export  class Pacijent {
-    constructor(i, t, v) {
-      this.ime = i;
-      this.tezina = t;
-      this.visina = v;
+// Modul pacijent.js
+
+export default class Pacijent {
+    constructor(i, v, t) {
+        this.ime = i;
+        this.visina = v;
+        this.tezina = t;
     }
-    spampaj() {
-      console.log(
-        `Podatci pacijenta su ime ${this.ime}, tezina${this.tezina}, ${this.visina}`
-      );
+    stampaj() {
+        console.log(`Pacijent: ${this.ime}, visina: ${this.visina}, tezina: ${this.tezina}`);
     }
     bmi() {
-      let bmi = this.tezina / this.visina ** 2;
-      return bmi;
+        let bmi = this.tezina / this.visina ** 2;
+        return bmi;
     }
     kritican() {
-      if (this.bmi < 15 || this.bmi > 40) {
-        return true;
-      } else {
-        return false;
-      }
+        let bmi = this.bmi();
+        if(bmi < 15 || bmi > 40) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
-  }
+}
