@@ -42,11 +42,19 @@ console.log(o2);
 =======
 // klasa Auto
 // Unutar klasa i objekata metode se pisu kao obicne funkcije NIKADA kao arrow funkcije
+<<<<<<< HEAD
 import {Auto} from "./modules/auto.js"
 import Film from "./modules/film.js"
 import Pacijent from "./modules/pacijent.js"
 import {Pacijent as PacijentGS} from "./modules/pacijent_gs.js";
 >>>>>>> a085ac5f83e4cd15dafd4531d6c11fa63f9b0279
+=======
+import { Auto } from "./modules/auto.js";
+import Film from "./modules/film.js";
+import Pacijent from "./modules/pacijent.js";
+import {Film as FilmGS} from "./modules/film_gs.js";
+import { Pacijent as PacijentGS } from "./modules/pacijent_gs.js";
+>>>>>>> 9f0c49829428b244305cc7920e6fd109c0858f12
 
 let auto1 = new Auto("Peugeot 208", "bela", false);
 // constructor("Peugeot 208", "bela", false)
@@ -91,6 +99,7 @@ console.log(f1);
 let pac1 = new PacijentGS("Pera", -50, 1000);
 console.log(pac1);
 
+<<<<<<< HEAD
 //pacijenti
 //odavde na dole su klase vezbanja
 let pa1 = new PacijentGS("Ana", 173, 70);
@@ -129,6 +138,14 @@ pacijenti.forEach(elem => {
     // maksBmi=elem.
   }
 });
+=======
+// citanje setera i getera
+console.log(auto1.aMarka); // geteru se pristupa kao polju!!!!
+//auto1.marka="Citrone C5"
+auto1.aMarka = "Citroen C5";
+//seteru se pristupa kao polju
+console.log(auto1.aMarka);
+>>>>>>> 9f0c49829428b244305cc7920e6fd109c0858f12
 
 console.log(`pacijent sa najvecim bmi je `);
 maksPac.stampaj();
@@ -192,4 +209,20 @@ let najboljeOcenjeni = niz => {
 
 console.log("Najbolje ocenjeni film je ");
 
+<<<<<<< HEAD
 najboljeOcenjeni(filmovi).stampaj();
+=======
+console.log(pacijent3.kritican());
+console.log(pacijent3.bmi());
+console.log(pacijent2.kritican());
+
+
+
+
+let f1 = new FilmGS("Naked Gun", "David Zucker", 1500);
+//f1.fGodinaIzdanja = 1599;
+console.log(f1);
+
+let pac1 = new PacijentGS("Pera", -50, 1000);
+console.log(pac1);
+>>>>>>> 9f0c49829428b244305cc7920e6fd109c0858f12
