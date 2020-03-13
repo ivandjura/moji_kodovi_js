@@ -38,6 +38,15 @@ o2.godine = 25;
 
 console.log(o1);
 console.log(o2);
+<<<<<<< HEAD
+=======
+// klasa Auto
+// Unutar klasa i objekata metode se pisu kao obicne funkcije NIKADA kao arrow funkcije
+import {Auto} from "./modules/auto.js"
+import Film from "./modules/film.js"
+import Pacijent from "./modules/pacijent.js"
+import {Pacijent as PacijentGS} from "./modules/pacijent_gs.js";
+>>>>>>> a085ac5f83e4cd15dafd4531d6c11fa63f9b0279
 
 let auto1 = new Auto("Peugeot 208", "bela", false);
 // constructor("Peugeot 208", "bela", false)

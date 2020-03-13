@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Modul pacijent.js
 
 export default class Pacijent {
@@ -5,6 +6,13 @@ export default class Pacijent {
         this.ime = i;
         this.visina = v;
         this.tezina = t;
+=======
+ export default class Pacijent {
+    constructor(i, t, v) {
+      this.ime = i;
+      this.tezina = t;
+      this.visina = v;
+>>>>>>> a085ac5f83e4cd15dafd4531d6c11fa63f9b0279
     }
     stampaj() {
         console.log(`Pacijent: ${this.ime}, visina: ${this.visina}, tezina: ${this.tezina}`);
