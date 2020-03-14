@@ -98,5 +98,68 @@ linkovi.forEach((l, i) => {
 //dodavanje i i brisanje klasa
 par.classList.add("error"); //dodavanje klase elementu
 console.log(par.classList);
-par.classList.remove('error'); //brisanje klase elementu
-par.classList.toggle('error') // switch za klase tj, toggle
+par.classList.remove("error"); //brisanje klase elementu
+par.classList.toggle("error"); // switch za klase tj, toggle
+
+//Tekst u paragrafima naizmenično pisati veličinom
+//15px, veličinom 20px i veličinom od 25px.
+paragrafi.forEach((elem, index) => {
+  if (index % 3 == 0) {
+    elem.style.fontSize = "15px";
+  } else if (index % 3 == 1) {
+    elem.style.fontSize = "20px";
+  } else {
+    elem.style.fontSize = "25px";
+  }
+});
+
+/*Svim paragrafima čiji tekst sadrži reč error,
+postaviti klasu na error, svim paragrafima čiji tekst
+sadrži reč success, postaviti klasu na success. Ostale
+kalse paragrafa ne modifikovati.
+if(p.textContent.includes(’success’)) */
+paragrafi.forEach(elem => {
+  if (elem.textContent.includes("Succes")) {
+    elem.classList.add("success");
+  } else if (elem.textContent.includes("Error")) {
+    elem.classList.add("error");
+  }
+});
+//dodati novi div tag dokumentu
+div = document.createElement("div");
+div.innerText = "pridodati div";
+document.body.appendChild(div);
+
+//formirati ul listu sa stavkama ciji je sadzaj prozivoljan tekst i dodat je div elemntu
+let lista1 = document.createElement("ul");
+let li1 = document.createElement("li");
+li1.innerText = "Prvi item";
+let li2 = document.createElement("li");
+li2.innerText = "Drugi item";
+let li3 = document.createElement("li");
+li3.innerText = "Treci item";
+
+let divlista = document.getElementById("lista");
+divlista.appendChild(lista1);
+lista1.appendChild(li1);
+lista1.appendChild(li2);
+lista1.appendChild(li3);
+
+//Iz ul liste izbaciti prvu stavku.
+
+//prvi nacin
+//lista1.removeChild(lista1.firstChild)
+//drugi nacin
+//lista1.removeChild(lista1.childNodes[0]);
+
+///remove zadnji child tj treci clan liste
+//lista1.removeChild(lista1.lastChild)
+
+//drugi nacin
+//lista1.removeChild(lista1.childNodes[2]);
+
+//U ul listi zameniti drugu stavku liste.
+let lipom = document.createElement("li");
+lipom.innerText = "***";
+//moze i da se stavi promenljiva.li2
+lista1.replaceChild(lipom, lista1.childNodes[1]);
