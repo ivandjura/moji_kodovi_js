@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyB6jBnPqSGgZ_AjbvPPikjWtaMHy301ovk",
+        authDomain: "djurabaza.firebaseapp.com",
+        databaseURL: "https://djurabaza.firebaseio.com",
+        projectId: "djurabaza",
+        storageBucket: "djurabaza.appspot.com",
+        messagingSenderId: "450665119696",
+        appId: "1:450665119696:web:5f3c0cf2f9219bc29803d5"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      let db=firebase.firestore()
+    </script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
