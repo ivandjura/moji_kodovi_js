@@ -17,21 +17,19 @@ console.log(task001);
 // Dodavanje novog dokumenta u kolekciju
 
 let c1 = {
-  name: 66,
-  age: 33,
+  name: "Filip Filipovic",
+  age: 50,
   addresses: ["Beograd", "Pozarevac", "Negotin"],
-  salary: 900
+  salary: 1200
 };
 /*
-db.collection("customers")
-  .doc()
-  .set(c1)
-  .then(() => {
+db.collection('customers').doc().set(c1)
+.then(() => {
     console.log("Customer added successfully");
-  })
-  .catch(error => {
+})
+.catch((error) => {
     console.error("Error adding customer:", error);
-  });
+});
 */
 db.collection("customers")
   .doc("customer-01")
@@ -50,9 +48,8 @@ let c2 = {
 let s = {
   merge: true
 };
-
 db.collection("customers")
-  .doc("customer-02")
+  .doc("customer-01")
   .set(c2, s)
   .then(() => {
     console.log("Customer added successfully");
@@ -62,8 +59,7 @@ db.collection("customers")
   });
 
 let datum1 = new Date("2020-03-17 19:00:00");
-let datum2 = new Date("2020-03-17 21:00:00");
-
+let datum2 = new Date("2020-03-17 21:00");
 let t3 = {
   title: "Fudbal",
   start_date: firebase.firestore.Timestamp.fromDate(datum1),
@@ -71,16 +67,16 @@ let t3 = {
   priority: false,
   description: "Fudbal sa drustvom"
 };
-
 db.collection("tasks")
-  .doc("tasks-03")
+  .doc("task-03")
   .set(t3)
   .then(() => {
     console.log("Task successfully added");
   })
   .catch(error => {
-    console.error("cannot add task:", error);
+    console.error("Cannot add task: ", error);
   });
+
 db.collection("tasks")
   .doc("task-03")
   .update({
@@ -90,5 +86,5 @@ db.collection("tasks")
     console.log("Task updated");
   })
   .catch(error => {
-    console.log("Cannon update task:", error);
+    console.error("Cannot update task: ", error);
   });
