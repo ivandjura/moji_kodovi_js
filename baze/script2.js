@@ -16,15 +16,30 @@ task
   });
 
 //dohvatamo sve dokumente iz kolekcije
+/*
+task.get()
+.then(doc => {
+    if(doc.exists) {
+        let temp = doc.data();
+        console.log(doc.id, temp);
+    }
+    else {
+        console.log("No such document");
+    }
+})
+.catch(error => {
+    console.error("Cannot get document: ", error);
+});
+*/
 
-let tasks = db.collection("tasks");
-tasks
-  .get()
-  .then(snapshot => {
-    snapshot.docs.forEach(doc => {
-      console.log(doc.id, doc.data());
-    });
-  })
-  .catch(error => {
-    console.error("Can not get documents from collection", error);
-  });
+/*
+let document = db.collection('...').doc('...');
+Kod dokumenta imate sledece metode:
+    // CRUD - Create, Read, Update, Delete
+    document.set(...) => postavlja polja (Create)
+    document.update(...) => menja postojeca polja (Update)
+    document.delete() => brise dokument (Delete)
+    document.get() => dohvata vrednosti polja dokumenta (Read)
+Nakon bilo koje od ovih metoda pozivaju se potom metode
+    .then() i .catch()
+*/
