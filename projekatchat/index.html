@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ITBootcampchat</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!--naslov ceta-->
+    <header>
+      <h1>ITBootcamp Chat</h1>
+      <h2>Choose a chatroom</h2>
+    </header>
+
+    <!--Dugmad za zobe-->
+    <nav>
+      <button id="btnGeneral" class="btn">#general</button>
+      <button id="btnJs" class="btn">#js</button>
+      <button id="btnHomeoworks" class="btn">#homeworks</button>
+      <button id="btnTests" class="btn">#test</button>
+    </nav>
+
+    <!--Prostor za poruke-->
+    <section>
+      <ul>
+        <!--ovde ce se nalaziti poruke-->
+      </ul>
+    </section>
+    <form id="formMessage">
+      <input type="text" placeholder="Your Message..." id="inputMessage" />
+      <input type="submit" value="Send" id="btnSend" class="btn" />
+    </form>
+    <!--Forma za promenu korisnickog imena-->
+    <form id="formUsername">
+      <input type="text" placeholder="Update username" id="inputUsername" />
+      <input type="submit" value="Update" id="btnUpdate" class="btn" />
+    </form>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyB6jBnPqSGgZ_AjbvPPikjWtaMHy301ovk",
+        authDomain: "djurabaza.firebaseapp.com",
+        databaseURL: "https://djurabaza.firebaseio.com",
+        projectId: "djurabaza",
+        storageBucket: "djurabaza.appspot.com",
+        messagingSenderId: "450665119696",
+        appId: "1:450665119696:web:5f3c0cf2f9219bc29803d5"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      let db = firebase.firestore();
+    </script>
+
+    <!--Povezivanje sa eksternim js fajlovima-->
+    <script src="chat.js"></script>
+  </body>
+</html>
