@@ -8,34 +8,40 @@
   </head>
   <body>
     <!--naslov ceta-->
-    <header>
-      <h1>ITBootcamp Chat</h1>
-      <h2>Choose a chatroom</h2>
-    </header>
+    <div id="top">
+      <header>
+        <h1>ITBootcamp Chat</h1>
+        <h2>Choose a chatroom</h2>
+      </header>
 
-    <!--Dugmad za zobe-->
-    <nav>
-      <button id="btnGeneral" class="btn">#general</button>
-      <button id="btnJs" class="btn">#js</button>
-      <button id="btnHomeoworks" class="btn">#homeworks</button>
-      <button id="btnTests" class="btn">#test</button>
-    </nav>
+      <!--Dugmad za zobe-->
+      <nav>
+        <button id="general" class="btn">#general</button>
+        <button id="js" class="btn">#js</button>
+        <button id="homeworks" class="btn">#homeworks</button>
+        <button id="tests" class="btn">#test</button>
+      </nav>
+    </div>
 
     <!--Prostor za poruke-->
     <section>
-      <ul>
+      <ul id="ulMessages">
         <!--ovde ce se nalaziti poruke-->
       </ul>
     </section>
-    <form id="formMessage">
-      <input type="text" placeholder="Your Message..." id="inputMessage" />
-      <input type="submit" value="Send" id="btnSend" class="btn" />
-    </form>
-    <!--Forma za promenu korisnickog imena-->
-    <form id="formUsername">
-      <input type="text" placeholder="Update username" id="inputUsername" />
-      <input type="submit" value="Update" id="btnUpdate" class="btn" />
-    </form>
+    <!-- forma za unos podataka-->
+    <div id="bottom">
+      <form id="formMessage">
+        <input type="text" placeholder="Your Message..." id="inputMessage" />
+        <input type="submit" value="Send" id="btnSend" class="btn" />
+      </form>
+      <!--Forma za promenu korisnickog imena-->
+      <form id="formUsername">
+        <input type="text" placeholder="Update username" id="inputUsername" />
+        <input type="submit" value="Update" id="btnUpdate" class="btn" />
+      </form>
+    </div>
+    <div id="divUpdatedUsername"></div>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
@@ -61,6 +67,8 @@
     </script>
 
     <!--Povezivanje sa eksternim js fajlovima-->
-    <script src="chat.js"></script>
+    <script src="app.js" type="module"></script>
+    <script src="chat.js" type="module"></script>
+    <script src="ui.js" type="module"></script>
   </body>
 </html>

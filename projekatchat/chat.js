@@ -1,4 +1,4 @@
-class Chatroom {
+export class Chatroom {
   constructor(r, u) {
     this.username = u;
     this.room = r;
@@ -53,16 +53,17 @@ class Chatroom {
   updateUsername(uu) {
     //sustinski menja samo vrednost lokalne promenljive, ne menja vrednost username u bazi podataka
     this.username = uu;
+    localStorage.setItem("usernameLS", uu);
   }
   updateRoom(ur) {
     this.room = ur;
-    console.log("Updated room");
+    //console.log("Updated room");
     if (this.unsub) {
       this.unsub();
     }
   }
 }
-
+/*
 //nova instanca klase (novi objekat)
 let chatroom = new Chatroom("js", "PeraPeric");
 //console.log(chatroom);
@@ -87,6 +88,7 @@ chatroom.getChets(data => {
 chatroom.updateRoom("js");
 chatroom.getChets(data => console.log(data));
 */
+/*
 setTimeout(() => {
   chatroom.updateRoom("general");
   chatroom.updateUsername("Tina");
@@ -95,3 +97,4 @@ setTimeout(() => {
   });
   chatroom.addChat("Kako si Milice?");
 }, 3000);
+*/

@@ -1,6 +1,9 @@
 body {
   text-align: center;
   color: purple;
+  height: 100%;
+  width: 100%;
+  margin: 0;
 }
 .btn {
   width: 200px;
@@ -34,4 +37,57 @@ input:focus {
 input:focus,
 .btn:focus {
   outline: 0;
+}
+.username {
+  font-weight: bold;
+}
+.date {
+  color: grey;
+}
+
+#ulMessages {
+  list-style-type: none;
+  font-size: 20px;
+  /* pozicioniranje ispod top sekcije */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 25%;
+  bottom: 20%;
+  overflow: hidden;
+
+  /* ul centralno postavljenja ,ali tekst levo poravnat
+    */
+  text-align: left;
+  width: 400px;
+  margin: 0 auto;
+  /* dodamo skrolovanje poruka */
+  overflow-y: auto;
+  /*prelom bilo koje reci bez razmaka */
+  word-wrap: break-word;
+}
+#ulMessages > li {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: silver 1px solid;
+}
+
+#top {
+  position: absolute;
+  height: 25%;
+  /*Postaviti centralno */
+  left: 0;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+}
+#bottom {
+  position: absolute;
+  height: 20%;
+
+  /*postaviti centralno */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
 }
