@@ -36,7 +36,7 @@ input:focus {
 
 input:focus,
 .btn:focus {
-  outline: 0;
+  outline-width: 0;
 }
 .username {
   font-weight: bold;
@@ -59,7 +59,7 @@ input:focus,
   /* ul centralno postavljenja ,ali tekst levo poravnat
     */
   text-align: left;
-  width: 400px;
+  width: 700px;
   margin: 0 auto;
   /* dodamo skrolovanje poruka */
   overflow-y: auto;
@@ -67,9 +67,17 @@ input:focus,
   word-wrap: break-word;
 }
 #ulMessages > li {
+  width: 60%;
+  background-color: thistle;
   margin-bottom: 10px;
-  padding-bottom: 10px;
-  border-bottom: silver 1px solid;
+  margin-right: 5px;
+  padding: 20px;
+  border-radius: 0px 10px 10px 10px;
+}
+.me {
+  margin-left: auto;
+  background-color: bisque !important;
+  border-radius: 20px 0px 20px 20px !important;
 }
 
 #top {
@@ -90,4 +98,15 @@ input:focus,
   right: 0;
   bottom: 0;
   overflow: hidden;
+}
+
+#divUpdatedUsername {
+  font-size: 20px;
+}
+​ #spanNewUsername {
+  font-weight: bold;
+}
+​ .btn-selected {
+  background-color: rgb(50, 10, 50);
+  color: bisque;
 }

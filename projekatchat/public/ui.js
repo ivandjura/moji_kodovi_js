@@ -34,12 +34,20 @@ export class ChatUI {
     let date = data.created_at.toDate();
     let strDate = this.formatDate(date);
 
-    let htmlLI = `<li> 
+    let htmlLI = `<li `;
+    if (data.username == localStorage.usernameLs) {
+      htmlLI += `class="me">`;
+    } else {
+      htmlLI += `class="not-me"`;
+    }
+
+    htmlLI += `<li>
         <span class="username">${data.username} : </span>
         <span class="message">${data.message}</span>
         <div class="date">${strDate}</div> 
     </li>`;
     this.list.innerHTML += htmlLI;
+    this.list.scrollTop = this.list.scrollHeight;
   }
 
   clear() {
