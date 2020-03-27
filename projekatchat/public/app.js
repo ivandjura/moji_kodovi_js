@@ -1,7 +1,8 @@
+//Moduli
 import { Chatroom } from "./chat.js";
 import { ChatUI } from "./ui.js";
 
-//dom elementi
+//DOM elementi
 let chatList = document.querySelector("#ulMessages");
 
 let formMessage = document.querySelector("#formMessage");
@@ -15,7 +16,7 @@ let updatedUsername = document.querySelector("#divUpdatedUsername");
 
 let buttons = document.querySelectorAll("button");
 
-//provera username u lokalnoj memoriji
+//Provera username u lokalnoj memoriji
 let checkUsername = () => {
   if (localStorage.usernameLS) {
     return localStorage.usernameLS;
@@ -24,13 +25,12 @@ let checkUsername = () => {
   }
 };
 
-//kreiranje klase instanca
+//Kreiranje instanci klasa
 let chatroom = new Chatroom("js", checkUsername());
 let chatui = new ChatUI(chatList);
 
-//provera prilikom ucitavanja stranice
-//koja soba je bila poslednja posecenja ,nju ucitati
-
+//Provera prilikom učitanja stranice
+//Koja soba je bila poslednja posećena, nju učitati
 let checkRoom = () => {
   if (localStorage.roomLS) {
     return localStorage.roomLS;
@@ -40,20 +40,20 @@ let checkRoom = () => {
 };
 chatroom.updateRoom(checkRoom());
 
-//poslednjoj posecenoj sobi dodati klasu koje ce da oboji to dugme
+//Poslednjoj posećenoj sobi dodati klasu koja će da oboji to dugme
 buttons.forEach(b => {
   if (b.id == checkRoom()) {
     b.classList.add("btn-selected");
   }
 });
 
-//ispisi poruke
+//Ispisi poruke
 chatroom.getChets(data => {
-  console.log(data); //u konzoli
+  //console.log(data); //u konzoli
   chatui.templateLI(data);
 });
 
-//kada je kliknuto(submit) na dugme send posalji poruku
+//Kada je submit dugme Send pošalji poruku
 formMessage.addEventListener("submit", e => {
   e.preventDefault();
   let message = inputMessage.value;
@@ -61,35 +61,45 @@ formMessage.addEventListener("submit", e => {
     .addChat(message)
     .then(() => formMessage.reset())
     .catch(error => console.log(error));
+
+  //Izbrisati sve poruke sa stanice
+  chatui.clear();
+
+  //Učitati poruke za promenjenu sobu
+  chatroom.getChets(data => {
+    //console.log(data); //u konzoli
+    chatui.templateLI(data);
+  });
 });
 
-//kada je submit dugme update izmeni korisnicko ime
+//Kada je submit dugme Update izmeni korisničko ime
 formUsername.addEventListener("submit", e => {
   e.preventDefault();
   let newUsername = inputUsername.value;
   chatroom.updateUsername(newUsername);
   formUsername.reset();
 
-  //osveziti stranicu osveziti chet prilikom promene korisnickog imena tako sto ga izbrisemo i upisemo ponovo
+  //Osvežiti čet prilikom promene korisničkog imena tako što ga izbrišemo i učitamo ponovo
   chatui.clear();
   chatroom.getChets(data => {
     chatui.templateLI(data);
   });
 
-  //kada je update ime prikazati poruku u trajanju od 3s
-  updatedUsername.innerHTML = `Your username was updated to <span id="spanNewUsername">${newUsername}
-  </span>`;
+  //Kada je Update ime prikazati poruku u trajanju od 3s
+  updatedUsername.innerHTML = `Your username was updated to 
+    <span id="spanNewUsername">${newUsername}</span>`;
   setTimeout(() => {
     updatedUsername.innerHTML = ``;
   }, 3000);
 });
-//promena sobe
+
+//Promena soba
 rooms.addEventListener("click", e => {
   if (e.target.tagName == "BUTTON") {
-    //kada je kliknuto na dugme dodeliti mu klasu da je bas ono selektovano
+    //Kada je kliknuto na dugme, dodeliti mu klasu da je baš ono selektovano
 
     buttons.forEach(b => {
-      //1."ocistiti" dugme od btn-selected klase
+      //"Očistiti" dugme od btn-selected klase
       if (b.classList.contains("btn-selected")) {
         b.classList.remove("btn-selected");
       }
@@ -99,18 +109,38 @@ rooms.addEventListener("click", e => {
 
     btn.classList.add("btn-selected");
 
-    //zelimo da isbrisemo sve poruke sa stranice
+    //Izbrisati sve poruke sa stanice
     chatui.clear();
 
-    // zelimo da promenimo sobu
+    //Promeniti sobu
     let newRoom = e.target.getAttribute("id");
     chatroom.updateRoom(newRoom);
     localStorage.setItem("roomLS", newRoom);
 
-    //zelimo da ucitamo poruke za promenjenu sobu
+    //Učitati poruke za promenjenu sobu
     chatroom.getChets(data => {
-      console.log(data);
+      //console.log(data); //u konzoli
       chatui.templateLI(data);
     });
   }
 });
+
+let formBoja = document.querySelector("#formBoja");
+let inputBoja = document.querySelector("#inputBoja");
+let body = document.querySelector("body");
+
+formBoja.addEventListener("submit", e => {
+  e.preventDefault();
+  let trenutnaBoja = inputBoja.value;
+
+  setTimeout(() => {
+    body.setAttribute("style", `background-color: ${trenutnaBoja}`);
+  }, 500);
+  localStorage.setItem("bojaLS", trenutnaBoja);
+});
+
+if (localStorage.bojaLS) {
+  body.setAttribute("style", `background-color: ${localStorage.bojaLS}`);
+} else {
+  body.setAttribute("style", `background-color: #ffffff`);
+}

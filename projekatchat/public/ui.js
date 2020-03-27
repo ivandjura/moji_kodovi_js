@@ -12,7 +12,7 @@ export class ChatUI {
   get list() {
     return this._list;
   }
-
+  //izmena datuma
   formatDate(date) {
     let d = date.getDate();
     let m = date.getMonth() + 1;
@@ -20,15 +20,28 @@ export class ChatUI {
     let h = date.getHours();
     let min = date.getMinutes();
 
-    //Dodavanje 0 ispred jednocifrenih vrednosti
+    let danasnji = new Date();
+    let danasnjiDan = danasnji.getDate();
+    let danasnjiMesec = danasnji.getMonth() + 1;
+    let tekGodina = danasnji.getFullYear();
+
+    danasnjiDan = String(danasnjiDan).padStart(2, "0");
+    danasnjiMesec = String(danasnjiMesec).padStart(2, "0");
+
+    //Dodavanje nule ispred jednocifrenih vrednosti
     d = String(d).padStart(2, "0");
     m = String(m).padStart(2, "0");
     h = String(h).padStart(2, "0");
     min = String(min).padStart(2, "0");
 
-    let strDate = d + "." + m + "." + y + ". - " + h + ":" + min;
-
-    return strDate;
+    if (d == danasnjiDan && m == danasnjiMesec && y == tekGodina) {
+      let strDate = h + ":" + min;
+      return strDate;
+    } else {
+      let strDate = d + "." + m + "." + y + ". - " + h + ":" + min;
+      //probaj na jelenin kod
+      return strDate;
+    }
   }
 
   //Metod koji pravi osnovu za prikaz list item-a
@@ -45,9 +58,9 @@ export class ChatUI {
     }
 
     htmlLI += `   <span class="username">${data.username} : </span>
-          <span class="message">${data.message}</span>
-          <div class="date">${strDate}</div>
-      </li>`;
+            <span class="message">${data.message}</span>
+            <div class="date">${strDate}</div>
+        </li>`;
     this.list.innerHTML += htmlLI;
     this.list.scrollTop = this.list.scrollHeight;
   }

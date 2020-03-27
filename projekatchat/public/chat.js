@@ -1,18 +1,21 @@
 export class Chatroom {
+  // Konstruktor
   constructor(r, u) {
-    this.username = u;
     this.room = r;
+    this.username = u;
     this.chats = db.collection("chats");
     this.unsub;
   }
-  //seteri
+
+  // Seteri
   set username(u) {
     this._username = u;
   }
   set room(r) {
     this._room = r;
   }
-  //geteri
+
+  // Geteri
   get username() {
     return this._username;
   }
@@ -21,19 +24,20 @@ export class Chatroom {
   }
 
   async addChat(mess) {
-    //dohvatanje tekuceg datuma koje je potreban za timestamp
+    //Dohvatanje tekućeg datuma koji je potreban za timestamp
     let date = new Date();
 
-    //kreiranje objekta/dokumenta koji prosledjujemo bazi podataka
+    // Kreiranje objekta/dokumenta koji prosleđujemo bazi podataka
     let docChat = {
       message: mess,
       username: this.username,
       room: this.room,
       created_at: firebase.firestore.Timestamp.fromDate(date)
     };
-    // da sacuvamo dokument u bazi
-    let repsonse = await this.chats.add(docChat);
-    return repsonse;
+
+    //Da sačuvamo dokument u bazi
+    let response = await this.chats.add(docChat);
+    return response;
   }
 
   getChets(callback) {
@@ -50,11 +54,13 @@ export class Chatroom {
         });
       });
   }
+
   updateUsername(uu) {
-    //sustinski menja samo vrednost lokalne promenljive, ne menja vrednost username u bazi podataka
+    //Suštinski menja samo vrednost lokalne promenljive, ne menja vrednost username u bazi podataka
     this.username = uu;
     localStorage.setItem("usernameLS", uu);
   }
+
   updateRoom(ur) {
     this.room = ur;
     //console.log("Updated room");
@@ -63,38 +69,39 @@ export class Chatroom {
     }
   }
 }
-/*
-//nova instanca klase (novi objekat)
-let chatroom = new Chatroom("js", "PeraPeric");
+
+//Nova instanca klase (Novi objekat)
+//let chatroom = new Chatroom('js', 'PeraPeric');
+
 //console.log(chatroom);
 /*
-chatroom
-  .addChat("Zdravo!")
-  .then(() => {
-    console.log("Cet je dodat!");
-  })
-  .catch(err => {
-    console.log(err);
-  });
+chatroom.addChat('Zdravo!')
+    .then( () => {console.log('Čet je dodat!');})
+    .catch( err => {console.log(err);});
 */
+
 /*
-chatroom.updateRoom("general");
-/*
-chatroom.getChets(data => {
-  console.log(data);
+chatroom.getChets( data => {
+    console.log(data);
 });
 
+chatroom.updateRoom("general");
 
-chatroom.updateRoom("js");
-chatroom.getChets(data => console.log(data));
+chatroom.getChets( data => {
+                    console.log(data);
+                });
+
+chatroom.updateRoom('js');
+
+chatroom.getChets( data => {console.log(data);} );
 */
 /*
-setTimeout(() => {
-  chatroom.updateRoom("general");
-  chatroom.updateUsername("Tina");
-  chatroom.getChets(data => {
-    console.log(data);
-  });
-  chatroom.addChat("Kako si Milice?");
+setTimeout( () => {
+    chatroom.updateRoom('js');
+    chatroom.updateUsername('Tina');
+    chatroom.getChets( data => {
+        console.log(data);
+    });
+    chatroom.addChat("Kako si Milice?");
 }, 3000);
 */
